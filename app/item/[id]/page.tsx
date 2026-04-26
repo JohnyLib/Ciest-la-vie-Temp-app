@@ -2,14 +2,14 @@
 
 import PageWrapper from "@/components/PageWrapper";
 import { getItemById, drinksMenu } from "@/lib/data";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, Variants } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, useRouter } from "next/navigation";
 import { ChevronLeft, Minus, Plus, ShoppingBag, Wine, ArrowRight } from "lucide-react";
 import { useState, use } from "react";
 
-const STAGGER_VARIANTS = {
+const STAGGER_VARIANTS: Variants = {
   hidden: {},
   show: {
     transition: {
@@ -19,7 +19,7 @@ const STAGGER_VARIANTS = {
   }
 };
 
-const ITEM_VARIANTS = {
+const ITEM_VARIANTS: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100, damping: 20 } }
 };
@@ -44,10 +44,10 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
 
   return (
     <PageWrapper className="relative bg-[#121212]">
-      
+
       {/* Top action bar */}
       <div className="absolute top-6 left-0 w-full z-50 flex items-center justify-between px-6 pt-safe">
-        <button 
+        <button
           onClick={() => router.back()}
           className="w-10 h-10 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-md text-white hover:bg-black/60 hover:scale-105 transition-all shadow-xl"
         >
@@ -56,7 +56,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
       </div>
 
       {/* Hero Image Section (Floating Block with Corners) */}
-      <motion.div 
+      <motion.div
         layoutId={`item-image-${item.id}`}
         className="w-full pt-4 px-4 relative z-10"
       >
@@ -70,11 +70,11 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="absolute inset-0"
             >
-              <Image 
-                src={galleryImages[activeImage]} 
-                alt={item.title} 
-                fill 
-                className="object-cover" 
+              <Image
+                src={galleryImages[activeImage]}
+                alt={item.title}
+                fill
+                className="object-cover"
                 referrerPolicy="no-referrer"
                 priority
               />
@@ -85,7 +85,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
       </motion.div>
 
       {/* Details Section */}
-      <motion.div 
+      <motion.div
         variants={STAGGER_VARIANTS}
         initial="hidden"
         animate="show"
@@ -97,7 +97,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
               <span className="w-2 h-2 rounded-full bg-[#E60000]"></span>
               {item.category} {item.tag ? `• ${item.tag}` : ''}
             </p>
-            <motion.h1 
+            <motion.h1
               layoutId={`item-title-${item.id}`}
               className="text-4xl font-serif font-bold text-white leading-[1.1] tracking-tight"
             >
@@ -105,7 +105,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
             </motion.h1>
           </div>
         </motion.div>
-        
+
         <motion.div variants={ITEM_VARIANTS} className="flex flex-col items-start gap-1 mb-6">
           <div className="flex items-baseline gap-2">
             <span className="text-3xl font-serif font-bold text-[#E60000]">{item.price}</span>
@@ -116,18 +116,17 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
         <motion.p variants={ITEM_VARIANTS} className="text-white/60 text-sm leading-relaxed mb-10 line-clamp-4">
           {item.description}
         </motion.p>
-        
+
         {/* Gallery Thumbnails */}
         <motion.div variants={ITEM_VARIANTS} className="flex gap-4 mb-10 overflow-x-auto pb-4 scrollbar-hide">
           {galleryImages.map((img, idx) => (
-            <button 
+            <button
               key={idx}
               onClick={() => setActiveImage(idx)}
-              className={`relative w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all flex-shrink-0 ${
-                activeImage === idx 
-                  ? 'border-[#E60000] scale-105 shadow-[0_0_15px_rgba(230,0,0,0.3)]' 
+              className={`relative w-20 h-20 rounded-2xl overflow-hidden border-2 transition-all flex-shrink-0 ${activeImage === idx
+                  ? 'border-[#E60000] scale-105 shadow-[0_0_15px_rgba(230,0,0,0.3)]'
                   : 'border-transparent opacity-50 hover:opacity-100 bg-[#1A1C20]'
-              }`}
+                }`}
             >
               <Image src={img} alt="" fill className="object-cover" referrerPolicy="no-referrer" />
             </button>
@@ -157,7 +156,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
       </motion.div>
 
       {/* Bottom Action Bar */}
-      <motion.div 
+      <motion.div
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         transition={{ type: "spring", damping: 25, stiffness: 120, delay: 0.3 }}
@@ -165,7 +164,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
       >
         <div className="flex items-center justify-between w-full gap-4">
           <div className="flex items-center bg-[#1A1C20] rounded-full border border-white/5 p-2 px-4 h-14">
-            <button 
+            <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
               className="w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors disabled:opacity-30"
               disabled={quantity <= 1}
@@ -173,15 +172,15 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
               <Minus className="w-4 h-4" />
             </button>
             <span className="w-10 text-center font-bold text-white text-lg">{quantity}</span>
-            <button 
+            <button
               onClick={() => setQuantity(quantity + 1)}
               className="w-8 h-8 flex items-center justify-center text-white/50 hover:text-white transition-colors"
             >
               <Plus className="w-4 h-4" />
             </button>
           </div>
-          
-          <motion.button 
+
+          <motion.button
             whileTap={{ scale: 0.95 }}
             className="flex-1 h-14 bg-[#E60000] text-white rounded-full flex items-center justify-center gap-3 font-bold tracking-widest text-xs uppercase shadow-[0_4px_20px_rgba(230,0,0,0.4)] transition-all hover:bg-[#ff1a1a]"
           >
