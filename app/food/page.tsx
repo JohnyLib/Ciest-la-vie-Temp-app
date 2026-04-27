@@ -2,7 +2,7 @@
 
 import PageWrapper from "@/components/PageWrapper";
 import { fullMenu, categories } from "@/lib/data";
-import { Plus, Scale } from "lucide-react";
+import { Scale } from "lucide-react";
 import Image from "next/image";
 import { useState, useCallback, memo } from "react";
 import { motion, AnimatePresence } from "motion/react";
@@ -35,15 +35,10 @@ const MenuCard = memo(function MenuCard({ item, index }: { item: any; index: num
             </div>
           )}
           <h3 className="text-lg font-serif font-bold text-white mb-1.5 leading-tight">{item.title}</h3>
-          <p className="text-[11px] text-white/35 leading-relaxed mb-5 line-clamp-2">{item.description}</p>
-          <div className="flex items-center justify-between">
-            <div className="flex items-baseline gap-2">
-              <span className="text-lg font-serif font-bold text-[#E60000]">{item.priceLei}</span>
-              <span className="text-[10px] text-white/25">{item.priceEur}</span>
-            </div>
-            <div className="w-8 h-8 rounded-full bg-white/[0.06] flex items-center justify-center group-hover:bg-[#E60000] transition-all duration-300">
-              <Plus className="w-4 h-4 text-white/60 group-hover:text-white transition-colors" />
-            </div>
+          <p className="text-[11px] text-white/35 leading-relaxed mb-4 line-clamp-2">{item.description}</p>
+          <div className="flex items-baseline gap-2">
+            <span className="text-lg font-serif font-bold text-[#E60000]">{item.priceLei}</span>
+            <span className="text-[10px] text-white/25">{item.priceEur}</span>
           </div>
         </div>
       </Link>
@@ -100,11 +95,6 @@ export default function FoodMenuPage() {
       <div className="mt-4 flex flex-col items-center text-center pb-8 border-t border-white/[0.04] pt-10 mx-6">
         <h4 className="text-base font-serif font-bold mb-1 text-white">C&apos;est la vie</h4>
         <p className="text-[9px] text-white/20 tracking-widest uppercase mb-6">Elite Culinary Experience</p>
-        <div className="flex gap-5 text-[10px] text-white/30 mb-6">
-          <Link href="#" className="hover:text-white/60 transition-colors">Contact</Link>
-          <Link href="#" className="hover:text-white/60 transition-colors">Location</Link>
-          <Link href="#" className="hover:text-white/60 transition-colors">Privacy</Link>
-        </div>
         <p className="text-[9px] text-white/15">© 2024 C&apos;est la vie</p>
       </div>
     </PageWrapper>

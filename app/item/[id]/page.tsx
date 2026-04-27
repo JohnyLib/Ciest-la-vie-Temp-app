@@ -6,8 +6,8 @@ import { motion, AnimatePresence, Variants } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, useRouter } from "next/navigation";
-import { ChevronLeft, Minus, Plus, ShoppingBag, ArrowRight, Scale } from "lucide-react";
-import { useState, use, useCallback } from "react";
+import { ChevronLeft, ArrowRight, Scale } from "lucide-react";
+import { useState, use } from "react";
 
 const STAGGER: Variants = {
   hidden: {},
@@ -15,18 +15,14 @@ const STAGGER: Variants = {
 };
 const FADE_UP: Variants = {
   hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 20 } }
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 120, damping: 20 } }
 };
 
 export default function ItemDetailPage(props: { params: Promise<{ id: string }> }) {
   const params = use(props.params);
   const router = useRouter();
   const item = getItemById(params.id);
-  const [quantity, setQuantity] = useState(1);
   const [activeImage, setActiveImage] = useState(0);
-
-  const inc = useCallback(() => setQuantity(q => q + 1), []);
-  const dec = useCallback(() => setQuantity(q => Math.max(1, q - 1)), []);
 
   if (!item) notFound();
 
@@ -67,7 +63,7 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
       </motion.div>
 
       {/* Details */}
-      <motion.div variants={STAGGER} initial="hidden" animate="show" className="relative z-20 flex-1 flex flex-col px-6 pt-7 pb-32">
+      <motion.div variants={STAGGER} initial="hidden" animate="show" className="relative z-20 flex-1 flex flex-col px-6 pt-7 pb-12">
         <motion.div variants={FADE_UP} className="mb-1">
           <p className="text-white/40 text-[10px] font-bold uppercase tracking-[0.2em] mb-2 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E60000]" />
@@ -131,26 +127,6 @@ export default function ItemDetailPage(props: { params: Promise<{ id: string }> 
             </Link>
           </motion.div>
         )}
-      </motion.div>
-
-      {/* Bottom Action Bar */}
-      <motion.div initial={{ y: 80 }} animate={{ y: 0 }} transition={{ type: "spring", damping: 25, stiffness: 120, delay: 0.2 }} className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md h-[90px] bg-[#0a0a0c]/90 backdrop-blur-xl border-t border-white/[0.06] px-5 flex items-center z-50">
-        <div className="flex items-center justify-between w-full gap-3">
-          <div className="flex items-center bg-[#141618] rounded-full border border-white/[0.06] p-1.5 px-3 h-12">
-            <button onClick={dec} className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white transition-colors disabled:opacity-20" disabled={quantity <= 1}>
-              <Minus className="w-4 h-4" />
-            </button>
-            <span className="w-8 text-center font-bold text-white text-base">{quantity}</span>
-            <button onClick={inc} className="w-8 h-8 flex items-center justify-center text-white/40 hover:text-white transition-colors">
-              <Plus className="w-4 h-4" />
-            </button>
-          </div>
-
-          <motion.button whileTap={{ scale: 0.96 }} className="flex-1 h-12 bg-[#E60000] text-white rounded-full flex items-center justify-center gap-2.5 font-bold tracking-widest text-[11px] uppercase shadow-[0_4px_24px_rgba(230,0,0,0.35)] hover:bg-[#ff1a1a] transition-colors active:bg-[#cc0000]">
-            <ShoppingBag className="w-4 h-4" />
-            Add to Cart
-          </motion.button>
-        </div>
       </motion.div>
     </PageWrapper>
   );
