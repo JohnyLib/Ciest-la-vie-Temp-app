@@ -1,24 +1,30 @@
 "use client";
 
-import { Menu } from "lucide-react";
+import { motion } from "motion/react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function TopNav() {
+  const pathname = usePathname();
+  const isItemPage = pathname.startsWith("/item/");
+
+  if (isItemPage) return null;
+
   return (
-    <nav className="fixed top-0 w-full max-w-md mx-auto z-50 px-6 py-4 flex items-center justify-between bg-[#121212] border-b border-[#222]">
-      <button className="flex items-center justify-center text-white/70 hover:text-white transition-colors" aria-label="Menu">
-        <Menu className="w-5 h-5" />
-      </button>
-      
-      <Link href="/" className="flex-1 flex justify-center">
-        <h1 className="font-serif font-bold text-white text-xl tracking-tight leading-none drop-shadow-md">
-          C'est la vie
+    <motion.nav
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+      className="fixed top-0 w-full max-w-md mx-auto z-50 px-6 py-4 flex items-center justify-center bg-[#0a0a0c]/80 backdrop-blur-xl border-b border-white/[0.04]"
+    >
+      <Link href="/" className="flex items-center gap-3">
+        <div className="w-7 h-7 rounded-full bg-[#E60000] flex items-center justify-center shadow-[0_0_20px_rgba(230,0,0,0.3)]">
+          <span className="text-white text-[10px] font-bold font-serif">C</span>
+        </div>
+        <h1 className="font-serif font-bold text-white text-lg tracking-tight leading-none">
+          C&apos;est la vie
         </h1>
       </Link>
-      
-      <button className="flex items-center justify-center text-[11px] font-bold tracking-widest text-[#E60000] hover:text-[#ff3333] transition-colors">
-        EN
-      </button>
-    </nav>
+    </motion.nav>
   );
 }

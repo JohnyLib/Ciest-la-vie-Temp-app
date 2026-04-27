@@ -1,94 +1,6 @@
-export const foodMenu = {
-  starters: [
-    {
-      id: "s1",
-      title: "Truffle Beef Tartare",
-      description: "Hand-cut prime tenderloin, infused with white truffle oil, capers, and a perfectly cured quail egg yolk. Served with toasted brioche.",
-      priceLei: "85 Lei",
-      priceEur: "17 EUR",
-      image: "https://picsum.photos/seed/tartare/600/400"
-    },
-    {
-      id: "s2",
-      title: "Charred Octopus",
-      description: "Smoked potato puree, paprika oil, pickled shallots, and a hint of lemon zest.",
-      priceLei: "95 Lei",
-      priceEur: "19 EUR",
-      image: "https://picsum.photos/seed/octopus/600/400"
-    },
-    {
-      id: "s3",
-      title: "Foie Gras Torchon",
-      description: "Silky foie gras, fig marmalade, and toasted hazelnuts on house-made artisanal bread.",
-      priceLei: "110 Lei",
-      priceEur: "22 EUR",
-      image: "https://picsum.photos/seed/foiegras/600/400"
-    }
-  ],
-  mainCourses: [
-    {
-      id: "m1",
-      title: "Pan-Seared Scallops",
-      description: "Hokkaido scallops, cauliflower silk, caviar blanc, and champagne beurre blanc.",
-      priceLei: "145 Lei",
-      priceEur: "29 EUR",
-      image: "https://picsum.photos/seed/scallops/600/400"
-    },
-    {
-      id: "m2",
-      title: "Wagyu A5 Striploin",
-      description: "Exquisite Japanese Wagyu, blistered shishito peppers, black garlic reduction, and smoked sea salt.",
-      priceLei: "320 Lei",
-      priceEur: "64 EUR",
-      image: "https://picsum.photos/seed/wagyu/600/400"
-    },
-    {
-      id: "m3",
-      title: "Wild Mushroom Risotto",
-      description: "Arborio rice, seasonal foraged mushrooms, aged Parmigiano-Reggiano, and fresh white truffle shavings.",
-      priceLei: "90 Lei",
-      priceEur: "18 EUR",
-      image: "https://picsum.photos/seed/risotto/600/400"
-    }
-  ],
-  pizzas: [
-    {
-      id: "p1",
-      title: "Regina Margherita",
-      description: "San Marzano DOP tomato sauce, fresh buffalo mozzarella, hand-torn basil, and extra virgin olive oil on our signature 72-hour fermented sourdough crust.",
-      priceLei: "65 Lei",
-      priceEur: "13 EUR",
-      image: "https://picsum.photos/seed/margherita/800/600"
-    },
-    {
-      id: "p2",
-      title: "Prosciutto & Tartufo",
-      description: "Truffle cream base, fior di latte, aged Prosciutto di Parma, fresh wild arugula, and shaved Parmigiano-Reggiano.",
-      priceLei: "85 Lei",
-      priceEur: "17 EUR",
-      image: "https://picsum.photos/seed/prosciutto/800/600"
-    }
-  ],
-  desserts: [
-    {
-      id: "d1",
-      title: "Valrhona Chocolate Sphere",
-      description: "Dark chocolate dome, hazelnut praline, and warm caramel sauce poured tableside.",
-      priceLei: "55 Lei",
-      priceEur: "11 EUR",
-      image: "https://picsum.photos/seed/chocolate/600/400"
-    },
-    {
-      id: "d2",
-      title: "Madagascar Vanilla Bean Panna Cotta",
-      description: "Silky panna cotta, mixed berry compote, and delicate edible gold leaf.",
-      priceLei: "45 Lei",
-      priceEur: "9 EUR",
-      image: "https://picsum.photos/seed/pannacotta/600/400"
-    }
-  ]
-};
+import restaurantsData from '../restaurants.json';
 
+// Keep drinksMenu for backward compatibility and recommended pairings
 export const drinksMenu = {
   craftBeers: [
     {
@@ -120,41 +32,107 @@ export const drinksMenu = {
   ]
 };
 
+// Transform restaurant items once at module load (cached)
+interface MenuItem {
+  id: string;
+  title: string;
+  description: string;
+  priceMdl: number;
+  priceLei: string;
+  priceEur: string;
+  image: string;
+  category: string;
+  tags: string[];
+  weight: number;
+}
+
+const transformedItems: MenuItem[] = restaurantsData.map(item => ({
+  id: item.id.toString(),
+  title: item.name,
+  description: item.description,
+  priceMdl: item.price_mdl,
+  priceLei: `${item.price_mdl} MDL`,
+  priceEur: `≈${Math.round(item.price_mdl / 20)}€`,
+  image: item.photo,
+  category: item.category,
+  tags: item.tags || [],
+  weight: item.weight_g
+}));
+
+// Pre-computed lookup map for O(1) getItemById
+const itemMap = new Map<string, MenuItem>();
+transformedItems.forEach(item => itemMap.set(item.id, item));
+
+// Group by category (computed once)
+export const fullMenu: Record<string, MenuItem[]> = {};
+transformedItems.forEach(item => {
+  if (!fullMenu[item.category]) {
+    fullMenu[item.category] = [];
+  }
+  fullMenu[item.category].push(item);
+});
+
+export const categories = Object.keys(fullMenu).map(cat => ({
+  id: cat,
+  label: cat,
+  count: fullMenu[cat].length
+}));
+
+// Featured items: pick highest-priced from each category for variety
+export function getFeaturedItems(count = 6): MenuItem[] {
+  const featured: MenuItem[] = [];
+  const cats = Object.keys(fullMenu);
+  for (const cat of cats) {
+    const sorted = [...fullMenu[cat]].sort((a, b) => b.priceMdl - a.priceMdl);
+    featured.push(sorted[0]);
+    if (featured.length >= count) break;
+  }
+  // Fill remaining with top priced overall
+  if (featured.length < count) {
+    const remaining = transformedItems
+      .filter(i => !featured.find(f => f.id === i.id))
+      .sort((a, b) => b.priceMdl - a.priceMdl);
+    featured.push(...remaining.slice(0, count - featured.length));
+  }
+  return featured.slice(0, count);
+}
+
 export function getItemById(id: string) {
-  const allFood = [
-    ...foodMenu.starters, 
-    ...foodMenu.mainCourses, 
-    ...foodMenu.pizzas, 
-    ...foodMenu.desserts
-  ];
-  
-  const foundFood = allFood.find(item => item.id === id);
-  if (foundFood) {
+  // O(1) lookup from pre-built map
+  const item = itemMap.get(id);
+  if (item) {
     return {
-      id: foundFood.id,
-      title: foundFood.title,
-      description: foundFood.description,
-      price: foundFood.priceLei,
-      image: foundFood.image,
-      category: 'Food'
+      id: item.id,
+      title: item.title,
+      description: item.description,
+      price: item.priceLei,
+      priceEur: item.priceEur,
+      image: item.image,
+      category: item.category,
+      tag: item.tags[0] || '',
+      tags: item.tags,
+      weight: item.weight
     };
   }
 
   const allDrinks: any[] = [
-    ...drinksMenu.craftBeers.map(b => ({ ...b, name: b.title, desc: b.description })), 
-    ...drinksMenu.draftSelection, 
+    ...drinksMenu.craftBeers.map(b => ({ ...b, name: b.title, desc: b.description })),
+    ...drinksMenu.draftSelection,
     ...drinksMenu.bottleCollection
   ];
 
-  const foundDrink = allDrinks.find(item => item.id === id);
+  const foundDrink = allDrinks.find(d => d.id === id);
   if (foundDrink) {
     return {
       id: foundDrink.id,
       title: foundDrink.name || foundDrink.title || '',
       description: foundDrink.desc || foundDrink.description || '',
       price: `$${foundDrink.price}`,
+      priceEur: '',
       image: foundDrink.image || '',
       tag: foundDrink.tag,
+      tags: [],
+      weight: 0,
       category: 'Drinks'
     };
   }

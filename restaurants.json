@@ -1,0 +1,671 @@
+[
+    {
+        "id": 1,
+        "name": "Брускетта с томатами",
+        "photo": "https://picsum.photos/seed/1/400/300",
+        "price_mdl": 45,
+        "description": "Хрустящий багет с чесноком и томатами",
+        "category": "Закуски",
+        "weight_g": 150,
+        "tags": [
+            "вегетарианское",
+            "итальянская"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Кальмары гриль",
+        "photo": "https://picsum.photos/seed/2/400/300",
+        "price_mdl": 85,
+        "description": "Кольца кальмара с лимонным соусом",
+        "category": "Закуски",
+        "weight_g": 200,
+        "tags": [
+            "морепродукты"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Тартар из лосося",
+        "photo": "https://picsum.photos/seed/3/400/300",
+        "price_mdl": 110,
+        "description": "Свежий лосось с авокадо и каплями масла",
+        "category": "Закуски",
+        "weight_g": 120,
+        "tags": [
+            "рыба",
+            "премиум"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "Куриные крылышки BBQ",
+        "photo": "https://picsum.photos/seed/4/400/300",
+        "price_mdl": 65,
+        "description": "Острые крылышки в соусе барбекю",
+        "category": "Закуски",
+        "weight_g": 300,
+        "tags": [
+            "мясо",
+            "острое"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "Сырная тарелка",
+        "photo": "https://picsum.photos/seed/5/400/300",
+        "price_mdl": 130,
+        "description": "Ассорти из 4 видов элитных сыров",
+        "category": "Закуски",
+        "weight_g": 250,
+        "tags": [
+            "сыр",
+            "вегетарианское"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Чесночные гренки",
+        "photo": "https://picsum.photos/seed/6/400/300",
+        "price_mdl": 35,
+        "description": "Домашний хлеб с чесноком и травами",
+        "category": "Закуски",
+        "weight_g": 100,
+        "tags": [
+            "быстро"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Креветки в чесночном масле",
+        "photo": "https://picsum.photos/seed/7/400/300",
+        "price_mdl": 120,
+        "description": "Тигровые креветки на гриле",
+        "category": "Закуски",
+        "weight_g": 180,
+        "tags": [
+            "морепродукты"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "Мусс из паштета",
+        "photo": "https://picsum.photos/seed/8/400/300",
+        "price_mdl": 55,
+        "description": "Нежный печеночный мусс с тостами",
+        "category": "Закуски",
+        "weight_g": 140,
+        "tags": [
+            "мясо"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "Салат Цезарь",
+        "photo": "https://picsum.photos/seed/9/400/300",
+        "price_mdl": 75,
+        "description": "Классика с курицей и пармезаном",
+        "category": "Салаты",
+        "weight_g": 250,
+        "tags": [
+            "популярное"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Греческий салат",
+        "photo": "https://picsum.photos/seed/10/400/300",
+        "price_mdl": 55,
+        "description": "Свежие овощи с фетой и оливками",
+        "category": "Салаты",
+        "weight_g": 280,
+        "tags": [
+            "вегетарианское"
+        ]
+    },
+    {
+        "id": 11,
+        "name": "Салат с тунцом",
+        "photo": "https://picsum.photos/seed/11/400/300",
+        "price_mdl": 85,
+        "description": "Тунец, микс салата и яйцо",
+        "category": "Салаты",
+        "weight_g": 220,
+        "tags": [
+            "рыба"
+        ]
+    },
+    {
+        "id": 12,
+        "name": "Нисуаз",
+        "photo": "https://picsum.photos/seed/12/400/300",
+        "price_mdl": 95,
+        "description": "Французский салат с тунцом и фасолью",
+        "category": "Салаты",
+        "weight_g": 300,
+        "tags": [
+            "классика"
+        ]
+    },
+    {
+        "id": 13,
+        "name": "Салат с креветками",
+        "photo": "https://picsum.photos/seed/13/400/300",
+        "price_mdl": 105,
+        "description": "Микс салата с тигровыми креветками",
+        "category": "Салаты",
+        "weight_g": 240,
+        "tags": [
+            "морепродукты"
+        ]
+    },
+    {
+        "id": 14,
+        "name": "Салат с говядиной",
+        "photo": "https://picsum.photos/seed/14/400/300",
+        "price_mdl": 90,
+        "description": "Обжаренная говядина и овощи гриль",
+        "category": "Салаты",
+        "weight_g": 270,
+        "tags": [
+            "мясо"
+        ]
+    },
+    {
+        "id": 15,
+        "name": "Кобб салат",
+        "photo": "https://picsum.photos/seed/15/400/300",
+        "price_mdl": 80,
+        "description": "Сытный салат с курицей и беконом",
+        "category": "Салаты",
+        "weight_g": 320,
+        "tags": [
+            "сытное"
+        ]
+    },
+    {
+        "id": 16,
+        "name": "Салат с фетой и свеклой",
+        "photo": "https://picsum.photos/seed/16/400/300",
+        "price_mdl": 50,
+        "description": "Сладкая свекла и соленая фета",
+        "category": "Салаты",
+        "weight_g": 200,
+        "tags": [
+            "вегетарианское"
+        ]
+    },
+    {
+        "id": 17,
+        "name": "Борщ",
+        "photo": "https://picsum.photos/seed/17/400/300",
+        "price_mdl": 55,
+        "description": "Традиционный красный борщ со сметаной",
+        "category": "Супы",
+        "weight_g": 350,
+        "tags": [
+            "традиционное"
+        ]
+    },
+    {
+        "id": 18,
+        "name": "Грибной крем-суп",
+        "photo": "https://picsum.photos/seed/18/400/300",
+        "price_mdl": 50,
+        "description": "Нежный суп из лесных грибов",
+        "category": "Супы",
+        "weight_g": 300,
+        "tags": [
+            "вегетарианское"
+        ]
+    },
+    {
+        "id": 19,
+        "name": "Том Ям",
+        "photo": "https://picsum.photos/seed/19/400/300",
+        "price_mdl": 85,
+        "description": "Острый тайский суп с креветками",
+        "category": "Супы",
+        "weight_g": 350,
+        "tags": [
+            "острое",
+            "азия"
+        ]
+    },
+    {
+        "id": 20,
+        "name": "Луковый суп",
+        "photo": "https://picsum.photos/seed/20/400/300",
+        "price_mdl": 45,
+        "description": "Французский суп с гренками и сыром",
+        "category": "Супы",
+        "weight_g": 300,
+        "tags": [
+            "классика"
+        ]
+    },
+    {
+        "id": 21,
+        "name": "Куриный бульон",
+        "photo": "https://picsum.photos/seed/21/400/300",
+        "price_mdl": 40,
+        "description": "Легкий суп с лапшой и зеленью",
+        "category": "Супы",
+        "weight_g": 300,
+        "tags": [
+            "легкое"
+        ]
+    },
+    {
+        "id": 22,
+        "name": "Тыквенный суп",
+        "photo": "https://picsum.photos/seed/22/400/300",
+        "price_mdl": 48,
+        "description": "Бархатистый суп из запеченной тыквы",
+        "category": "Супы",
+        "weight_g": 300,
+        "tags": [
+            "вегетарианское"
+        ]
+    },
+    {
+        "id": 23,
+        "name": "Стейк Рибай",
+        "photo": "https://picsum.photos/seed/23/400/300",
+        "price_mdl": 250,
+        "description": "Премиальная говядина на гриле",
+        "category": "Основные блюда",
+        "weight_g": 350,
+        "tags": [
+            "мясо",
+            "премиум"
+        ]
+    },
+    {
+        "id": 24,
+        "name": "Куриное филе гриль",
+        "photo": "https://picsum.photos/seed/24/400/300",
+        "price_mdl": 95,
+        "description": "Сочная грудка с овощами",
+        "category": "Основные блюда",
+        "weight_g": 300,
+        "tags": [
+            "диетическое"
+        ]
+    },
+    {
+        "id": 25,
+        "name": "Лосось на пару",
+        "photo": "https://picsum.photos/seed/25/400/300",
+        "price_mdl": 180,
+        "description": "Филе лосося с лимоном и спаржей",
+        "category": "Основные блюда",
+        "weight_g": 250,
+        "tags": [
+            "рыба",
+            "полезно"
+        ]
+    },
+    {
+        "id": 26,
+        "name": "Бургер Классик",
+        "photo": "https://picsum.photos/seed/26/400/300",
+        "price_mdl": 70,
+        "description": "Говяжья котлета, сыр, соленый огурец",
+        "category": "Основные блюда",
+        "weight_g": 350,
+        "tags": [
+            "фастфуд"
+        ]
+    },
+    {
+        "id": 27,
+        "name": "Утка с ягодным соусом",
+        "photo": "https://picsum.photos/seed/27/400/300",
+        "price_mdl": 160,
+        "description": "Запеченная утка в соусе из брусники",
+        "category": "Основные блюда",
+        "weight_g": 300,
+        "tags": [
+            "мясо"
+        ]
+    },
+    {
+        "id": 28,
+        "name": "Свиная отбивная",
+        "photo": "https://picsum.photos/seed/28/400/300",
+        "price_mdl": 110,
+        "description": "Свинина в панировке с картофелем",
+        "category": "Основные блюда",
+        "weight_g": 400,
+        "tags": [
+            "мясо"
+        ]
+    },
+    {
+        "id": 29,
+        "name": "Рыба дня",
+        "photo": "https://picsum.photos/seed/29/400/300",
+        "price_mdl": 140,
+        "description": "Свежий улов на гриле",
+        "category": "Основные блюда",
+        "weight_g": 300,
+        "tags": [
+            "рыба"
+        ]
+    },
+    {
+        "id": 30,
+        "name": "Лазанья мясная",
+        "photo": "https://picsum.photos/seed/30/400/300",
+        "price_mdl": 95,
+        "description": "Слои пасты с фаршем и сыром",
+        "category": "Основные блюда",
+        "weight_g": 350,
+        "tags": [
+            "итальянская"
+        ]
+    },
+    {
+        "id": 31,
+        "name": "Курица Карри",
+        "photo": "https://picsum.photos/seed/31/400/300",
+        "price_mdl": 85,
+        "description": "Кусочки курицы в пряном соусе",
+        "category": "Основные блюда",
+        "weight_g": 350,
+        "tags": [
+            "азия",
+            "острое"
+        ]
+    },
+    {
+        "id": 32,
+        "name": "Стейк из индейки",
+        "photo": "https://picsum.photos/seed/32/400/300",
+        "price_mdl": 80,
+        "description": "Легкое и полезное блюдо",
+        "category": "Основные блюда",
+        "weight_g": 250,
+        "tags": [
+            "диетическое"
+        ]
+    },
+    {
+        "id": 33,
+        "name": "Котлеты по-киевски",
+        "photo": "https://picsum.photos/seed/33/400/300",
+        "price_mdl": 85,
+        "description": "Курица с маслом внутри",
+        "category": "Основные блюда",
+        "weight_g": 280,
+        "tags": [
+            "мясо"
+        ]
+    },
+    {
+        "id": 34,
+        "name": "Стейк из тунца",
+        "photo": "https://picsum.photos/seed/34/400/300",
+        "price_mdl": 190,
+        "description": "Обжаренный тунец прожарки Medium",
+        "category": "Основные блюда",
+        "weight_g": 220,
+        "tags": [
+            "рыба",
+            "премиум"
+        ]
+    },
+    {
+        "id": 35,
+        "name": "Паста Карбонара",
+        "photo": "https://picsum.photos/seed/35/400/300",
+        "price_mdl": 75,
+        "description": "Спагетти с беконом и сливками",
+        "category": "Паста",
+        "weight_g": 300,
+        "tags": [
+            "итальянская"
+        ]
+    },
+    {
+        "id": 36,
+        "name": "Паста Болоньезе",
+        "photo": "https://picsum.photos/seed/36/400/300",
+        "price_mdl": 70,
+        "description": "Паста с мясным соусом",
+        "category": "Паста",
+        "weight_g": 320,
+        "tags": [
+            "итальянская"
+        ]
+    },
+    {
+        "id": 37,
+        "name": "Паста Песто",
+        "photo": "https://picsum.photos/seed/37/400/300",
+        "price_mdl": 65,
+        "description": "С соусом из базилика и кедровых орехов",
+        "category": "Паста",
+        "weight_g": 300,
+        "tags": [
+            "вегетарианское"
+        ]
+    },
+    {
+        "id": 38,
+        "name": "Ризотто с грибами",
+        "photo": "https://picsum.photos/seed/38/400/300",
+        "price_mdl": 80,
+        "description": "Кремовый рис с лесными грибами",
+        "category": "Паста",
+        "weight_g": 300,
+        "tags": [
+            "итальянская"
+        ]
+    },
+    {
+        "id": 39,
+        "name": "Фетучини Альфредо",
+        "photo": "https://picsum.photos/seed/39/400/300",
+        "price_mdl": 75,
+        "description": "Паста в сливочно-сырном соусе",
+        "category": "Паста",
+        "weight_g": 300,
+        "tags": [
+            "сытное"
+        ]
+    },
+    {
+        "id": 40,
+        "name": "Паста с морепродуктами",
+        "photo": "https://picsum.photos/seed/40/400/300",
+        "price_mdl": 110,
+        "description": "Микс морепродуктов и томатов",
+        "category": "Паста",
+        "weight_g": 350,
+        "tags": [
+            "морепродукты"
+        ]
+    },
+    {
+        "id": 41,
+        "name": "Чизкейк",
+        "photo": "https://picsum.photos/seed/41/400/300",
+        "price_mdl": 45,
+        "description": "Классический сливочный десерт",
+        "category": "Десерты",
+        "weight_g": 150,
+        "tags": [
+            "сладкое"
+        ]
+    },
+    {
+        "id": 42,
+        "name": "Тирамису",
+        "photo": "https://picsum.photos/seed/42/400/300",
+        "price_mdl": 50,
+        "description": "Итальянский десерт с кофе",
+        "category": "Десерты",
+        "weight_g": 140,
+        "tags": [
+            "итальянская"
+        ]
+    },
+    {
+        "id": 43,
+        "name": "Шоколадный фондан",
+        "photo": "https://picsum.photos/seed/43/400/300",
+        "price_mdl": 55,
+        "description": "Пирожное с жидким центром",
+        "category": "Десерты",
+        "weight_g": 130,
+        "tags": [
+            "шоколад"
+        ]
+    },
+    {
+        "id": 44,
+        "name": "Яблочный штрудель",
+        "photo": "https://picsum.photos/seed/44/400/300",
+        "price_mdl": 40,
+        "description": "Теплый штрудель с ванильным мороженым",
+        "category": "Десерты",
+        "weight_g": 180,
+        "tags": [
+            "теплое"
+        ]
+    },
+    {
+        "id": 45,
+        "name": "Панна-котта",
+        "photo": "https://picsum.photos/seed/45/400/300",
+        "price_mdl": 40,
+        "description": "Нежное молочное желе с ягодами",
+        "category": "Десерты",
+        "weight_g": 150,
+        "tags": [
+            "легкое"
+        ]
+    },
+    {
+        "id": 46,
+        "name": "Брауни",
+        "photo": "https://picsum.photos/seed/46/400/300",
+        "price_mdl": 45,
+        "description": "Густое шоколадное пирожное",
+        "category": "Десерты",
+        "weight_g": 120,
+        "tags": [
+            "шоколад"
+        ]
+    },
+    {
+        "id": 47,
+        "name": "Мороженое",
+        "photo": "https://picsum.photos/seed/47/400/300",
+        "price_mdl": 30,
+        "description": "3 шарика на ваш выбор",
+        "category": "Десерты",
+        "weight_g": 150,
+        "tags": [
+            "холодное"
+        ]
+    },
+    {
+        "id": 48,
+        "name": "Лимонад домашний",
+        "photo": "https://picsum.photos/seed/48/400/300",
+        "price_mdl": 35,
+        "description": "Лимон, мята и лед",
+        "category": "Напитки",
+        "weight_g": 400,
+        "tags": [
+            "освежающее"
+        ]
+    },
+    {
+        "id": 49,
+        "name": "Кофе Эспрессо",
+        "photo": "https://picsum.photos/seed/49/400/300",
+        "price_mdl": 20,
+        "description": "Крепкий черный кофе",
+        "category": "Напитки",
+        "weight_g": 40,
+        "tags": [
+            "горячее"
+        ]
+    },
+    {
+        "id": 50,
+        "name": "Капучино",
+        "photo": "https://picsum.photos/seed/50/400/300",
+        "price_mdl": 28,
+        "description": "Кофе с пышной молочной пенкой",
+        "category": "Напитки",
+        "weight_g": 200,
+        "tags": [
+            "горячее"
+        ]
+    },
+    {
+        "id": 51,
+        "name": "Зеленый чай",
+        "photo": "https://picsum.photos/seed/51/400/300",
+        "price_mdl": 25,
+        "description": "Классический листовой чай",
+        "category": "Напитки",
+        "weight_g": 300,
+        "tags": [
+            "горячее"
+        ]
+    },
+    {
+        "id": 52,
+        "name": "Апельсиновый сок",
+        "photo": "https://picsum.photos/seed/52/400/300",
+        "price_mdl": 30,
+        "description": "Свежевыжатый сок",
+        "category": "Напитки",
+        "weight_g": 250,
+        "tags": [
+            "холодное"
+        ]
+    },
+    {
+        "id": 53,
+        "name": "Минеральная вода",
+        "photo": "https://picsum.photos/seed/53/400/300",
+        "price_mdl": 15,
+        "description": "Газированная или без газа",
+        "category": "Напитки",
+        "weight_g": 500,
+        "tags": [
+            "вода"
+        ]
+    },
+    {
+        "id": 54,
+        "name": "Красное вино",
+        "photo": "https://picsum.photos/seed/54/400/300",
+        "price_mdl": 150,
+        "description": "Бокал сухого вина",
+        "category": "Напитки",
+        "weight_g": 150,
+        "tags": [
+            "алкоголь"
+        ]
+    },
+    {
+        "id": 55,
+        "name": "Пиво светлое",
+        "photo": "https://picsum.photos/seed/55/400/300",
+        "price_mdl": 40,
+        "description": "Охлажденный бокал лагера",
+        "category": "Напитки",
+        "weight_g": 500,
+        "tags": [
+            "алкоголь"
+        ]
+    }
+]
